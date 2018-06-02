@@ -39,5 +39,6 @@ require __DIR__ . '/../src/routes.php';
 /*foreach (Resolver::resolve($container, $controllers) as $controller => $callback) {
     $container[$controller] = $callback;
 }*/
+//print_r($app->getContainer()->get('router')->getRoutes());
 // Run app
 $app->run();

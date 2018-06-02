@@ -10,6 +10,17 @@ class AuthController {
         $this->logger = $this->ci->get("logger");
         $this->settings = $this->ci->get("settings");
     }
+    public function loginPage($request, $response, $args){
+        //$this->logger->info("Slim-Skeleton '/' route");
+        $args["version"] = "2.0.2";
+        $args["ip"] = "localhost";
+        $args["database"] = new stdClass();
+        $args["database"]->status = true;
+        $args["database"]->ip = "localhost";
+        $args["database"]->port = 3307;
+        return $this->ci->get("renderer")
+                ->render($response, 'login.phtml', $args);
+    }
     public function login($request, $response, $args){
         //var_dump($request);
         $arr = new stdClass();

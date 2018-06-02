@@ -1,9 +1,0 @@
-{
-    "games" : "/api/games/{id}",
-    "download-games": "api/downloads/games/{id}",
-    "gamesdb" : "/api/gamesdb/{id}",
-    "youtube" : "/api/youtube/{id}",
-    "login" : "/api/login",
-    "logout" : "/api/logout",
-    "info": "/api/info" 
-}

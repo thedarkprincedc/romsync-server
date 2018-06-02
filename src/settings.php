@@ -32,8 +32,8 @@ return [
             'path' => '/tmp/dbfile.txt'
         ],
         'locations' => [
-             "rom_location" => (getenv("ROM_DEFAULT_FOLDER"))?getenv("ROM_DEFAULT_FOLDER"):"/roms",
-             'image_location'=> (getenv("IMAGE_DEFAULT_FOLDER"))?getenv("IMAGE_DEFAULT_FOLDER"):"/images"
+            'roms' => '/roms/',
+            'images' => 'images'
         ],
         'name' => 'romsync-resources',
         'version' => '2.0.1',
