@@ -15,6 +15,11 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+            'Zend\\Config\\' => 12,
+        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -44,6 +49,7 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'FastRoute\\' => 10,
         ),
         'D' => 
@@ -58,6 +64,14 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Zend\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-config/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -95,6 +109,10 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
@@ -115,6 +133,13 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'Application' => 
+            array (
+                0 => __DIR__ . '/../..' . '/src/module/Application/src',
             ),
         ),
     );

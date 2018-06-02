@@ -15,16 +15,21 @@ return [
             'path' => __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
-        'database' => [
-            'hostname' => (getenv("MYSQL_HOST"))?getenv("MYSQL_HOST"):'192.168.1.27',
-            'port' => (getenv("MYSQL_PORT"))?getenv("MYSQL_PORT"):'27071',
-            'database' => (getenv("MYSQL_DATABASE"))?getenv("MYSQL_DATABASE"):'romsync',
-            'username' => (getenv("MYSQL_USER"))?getenv("MYSQL_USER"):'xbmc',
-            'password' => (getenv("MYSQL_PASSWORD"))?getenv("MYSQL_PASSWORD"):'xbmc'
+        'keys' => [
+            'youtube' => 'AIzaSyAzejE7EzH8BSE1arIe1P70t0ruZphqe9A'
         ],
-        'youtube' => [
-          'key' => (getenv("YOUTUBE_API_KEY")) ? getenv("YOUTUBE_API_KEY") : "AIzaSyAzejE7EzH8BSE1arIe1P70t0ruZphqe9A",
-          'search_tmpl_url' => "https://www.googleapis.com/youtube/v3/search?part=snippet&key=%s&type=video&q=%s"
+        'url' => [
+            'youtube_search' => 'https://www.googleapis.com/youtube/v3/search',
+            'youtube_embed' => 'https://www.youtube.com/embed/',
+            'gamesdb_search' => 'http://thegamesdb.net/api/GetGame.php'
+        ],
+        'mysql' => [
+            'hostname' => '192.168.2.27',
+            'port' => '3307',
+            'database' => 'romsync'
+        ],
+        'sqlite' => [
+            'path' => '/tmp/dbfile.txt'
         ],
         'locations' => [
              "rom_location" => (getenv("ROM_DEFAULT_FOLDER"))?getenv("ROM_DEFAULT_FOLDER"):"/roms",
@@ -32,7 +37,6 @@ return [
         ],
         'name' => 'romsync-resources',
         'version' => '2.0.1',
-        'urlPrefix' => '/api',
-        'HMAC_SECRET' => 'Pillsbury'
+        'urlPrefix' => '/api'
     ],
 ];

@@ -12,6 +12,7 @@ if (PHP_SAPI == 'cli-server') {
 date_default_timezone_set('America/New_York');
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/RedBeanPHP5_1_0/rb.php';
+
 session_start();
 
 // Instantiate the app
@@ -23,7 +24,13 @@ require __DIR__ . '/../src/dependencies.php';
 
 // Register middleware
 require __DIR__ . '/../src/middleware.php';
+require __DIR__ . '/../src/middleware/auth.middleware.php';
+
+// Register controllers
 require __DIR__ . '/../src/controllers/romsync.controller.php';
+require __DIR__ . '/../src/controllers/auth.controller.php';
+require __DIR__ . '/../src/controllers/gamesdb.controller.php';
+require __DIR__ . '/../src/controllers/youtube.controller.php';
 
 // Register routes
 require __DIR__ . '/../src/routes.php';

@@ -1,0 +1,13 @@
+{
+    "jwt" : {
+        "key": "jjoomojmojmoj",
+        "algorithm": "HS512"
+    },
+    "database":{
+        "user": "jwt",
+        "password": "jwt",
+        "host": "sp-simple-jwt-mysql",
+        "name": "jwt"
+    },
+    "serverName": "romsync.thedarkprincedc.com"
+}
