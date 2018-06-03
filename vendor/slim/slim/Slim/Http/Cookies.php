@@ -3,7 +3,7 @@
  * Slim Framework (https://slimframework.com)
  *
  * @link      https://github.com/slimphp/Slim
- * @copyright Copyright (c) 2011-2016 Josh Lockhart
+ * @copyright Copyright (c) 2011-2017 Josh Lockhart
  * @license   https://github.com/slimphp/Slim/blob/3.x/LICENSE.md (MIT License)
  */
 namespace Slim\Http;
@@ -42,7 +42,8 @@ class Cookies implements CookiesInterface
         'path' => null,
         'expires' => null,
         'secure' => false,
-        'httponly' => false
+        'httponly' => false,
+        'samesite' => null
     ];
 
     /**
@@ -148,6 +149,11 @@ class Cookies implements CookiesInterface
 
         if (isset($properties['httponly']) && $properties['httponly']) {
             $result .= '; HttpOnly';
+        }
+
+        if (isset($properties['samesite']) && in_array(strtolower($properties['samesite']), ['lax', 'strict'], true)) {
+            // While strtolower is needed for correct comparison, the RFC doesn't care about case
+            $result .= '; SameSite=' . $properties['samesite'];
         }
 
         return $result;

@@ -82,6 +82,7 @@ class AuthController {
         //return $response->withJson($arr, 201)->withAddedHeader('Access-Control-Allow-Origin', '*');
     }
     public function logout($request, $response, $args){
+        $arr = new stdClass();
         return $response->withJson($arr, 201)->withAddedHeader('Access-Control-Allow-Origin', '*');
     }
     public function verify(){

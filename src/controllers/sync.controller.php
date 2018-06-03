@@ -1,5 +1,5 @@
 <?php
-class GamesDBController {
+class SyncController {
     protected $ci;
     protected $logger;
     protected $settings;

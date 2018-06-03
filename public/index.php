@@ -24,7 +24,7 @@ require __DIR__ . '/../src/dependencies.php';
 
 // Register middleware
 require __DIR__ . '/../src/middleware.php';
-require __DIR__ . '/../src/middleware/auth.middleware.php';
+//require __DIR__ . '/../src/middleware/auth.middleware.php';
 
 // Register controllers
 require __DIR__ . '/../src/controllers/romsync.controller.php';
