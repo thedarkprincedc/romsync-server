@@ -21,14 +21,12 @@ class AuthController {
         return $this->ci->get("renderer")
                 ->render($response, 'login.phtml', $args);
     }
-    public function login($request, $response, $args){
-        //var_dump($request);
+    public function login($request, $response, $args){ 
         $arr = new stdClass();
-        $usename = "ijnijnijnij";
-        $password = "ijnijninijni";
-        // $credentials = $request->getParams();
-        // $usename = $credentials->username;
-        // $password = $credentials->password;
+        $usename = $request->getParam("username");
+        $password = $request->getParam("password");
+
+       
         //$config = Factory::fromFile('/src/config/config.php', true);
         $data = file_get_contents (__DIR__."/../config/config.json");
         $json = json_decode($data, true);
@@ -70,7 +68,8 @@ class AuthController {
                     $unencodedArray = ['jwt' => $jwt];
                    
                     //echo json_encode($unencodedArray);
-                    return $response->withJson($unencodedArray, 200)->withAddedHeader('Access-Control-Allow-Origin', '*');
+                    return $response->withStatus(302)->withHeader('Location', 'http://localhost:');
+                    //return $response->withJson($unencodedArray, 200)->withAddedHeader('Access-Control-Allow-Origin', '*');
                 } else{
 
                 }

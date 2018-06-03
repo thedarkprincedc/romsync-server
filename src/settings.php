@@ -32,11 +32,14 @@ return [
             'path' => '/tmp/dbfile.txt'
         ],
         'locations' => [
-            'roms' => '/roms/',
+            'roms' => 'roms',
             'images' => 'images'
         ],
-        'name' => 'romsync-resources',
-        'version' => '2.0.1',
-        'urlPrefix' => '/api'
-    ],
+        'app' => [
+            'name' => 'romsync-resources',
+            'version' => '2.0.1',
+            'urlPrefix' => '/api',
+            'loginRedirectUri' => 'http://localhost:3000/#/index'
+        ]
+    ]
 ];

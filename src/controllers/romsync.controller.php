@@ -15,12 +15,13 @@ class RomsyncController {
     }
     public function index($request, $response, $args){
         //$this->logger->info("Slim-Skeleton '/' route");
-        $args["version"] = "2.0.2";
-        $args["ip"] = "localhost";
-        $args["database"] = new stdClass();
-        $args["database"]->status = true;
-        $args["database"]->ip = "localhost";
-        $args["database"]->port = 3307;
+        // $args["version"] = "2.0.2";
+        // $args["ip"] = "localhost";
+        // $args["database"] = new stdClass();
+        // $args["database"]->status = true;
+        // $args["database"]->ip = "localhost";
+        // $args["database"]->port = 3307;
+        //$this->settings
         return $this->ci->get("renderer")
                 ->render($response, 'index.phtml', $args);
     }
@@ -59,7 +60,6 @@ class RomsyncController {
     }
     public function systems($request, $response, $args){
         // $result = R::exec( 'SELECT system FROM roms GROUP BY system' );
-        
         $arr = [];
         $arr[0] = new stdClass();
         $arr[0]->name = "Arcade";

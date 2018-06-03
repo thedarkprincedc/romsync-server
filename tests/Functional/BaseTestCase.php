@@ -8,9 +8,9 @@ use Slim\Http\Response;
 use Slim\Http\Environment;
 
 
-require __DIR__ . '/../../src/helper_functions.php';
-require __DIR__ . '/../../src/database_functions.php';
-require __DIR__ . '/../../src/paramstosql.php';
+// require __DIR__ . '/../../src/helper_functions.php';
+// require __DIR__ . '/../../src/database_functions.php';
+// require __DIR__ . '/../../src/paramstosql.php';
 /**
  * This is an example class that shows how you could set up a method that
  * runs the application. Note that it doesn't cover all use-cases and is
@@ -67,9 +67,13 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         // Register middleware
         if ($this->withMiddleware) {
             require __DIR__ . '/../../src/middleware.php';
+            require __DIR__ . '/../../src/middleware/auth.middleware.php';
         }
-        require_once( __DIR__ . '/../../src/AuthController.php');
-        require_once( __DIR__ . '/../../src/RSController.php');
+        // require_once( __DIR__ . '/../../src/AuthController.php');
+        require_once( __DIR__ . '/../../src/controllers/romsync.controller.php');
+        require_once( __DIR__ . '/../../src/controllers/gamesdb.controller.php');
+        require_once( __DIR__ . '/../../src/controllers/youtube.controller.php');
+        require_once( __DIR__ . '/../../src/controllers/auth.controller.php');
 
         // Register routes
         require __DIR__ . '/../../src/routes.php';
