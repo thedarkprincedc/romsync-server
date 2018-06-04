@@ -26,11 +26,6 @@ class AuthController {
         $usename = $request->getParam("username");
         $password = $request->getParam("password");
         
-       
-        //$config = Factory::fromFile('/src/config/config.php', true);
-        $data = file_get_contents (__DIR__."/../config/config.json");
-        $json = json_decode($data, true);
-       
         if($usename && $password){
             try{
              
@@ -41,7 +36,7 @@ class AuthController {
                     $issuedAt   = time();
                     $notBefore  = $issuedAt + 10;  //Adding 10 seconds
                     $expire     = $notBefore + 60; // Adding 60 seconds
-                    $serverName = $json->serverName;
+                    $serverName = $this->settings["serverName"];
 
                     $data = [
                         'iat'  => $issuedAt,         // Issued at: time when the token was generated
@@ -50,19 +45,19 @@ class AuthController {
                         'nbf'  => $notBefore,        // Not before
                         'exp'  => $expire,           // Expire
                         'data' => [                  // Data related to the signer user
-                            'userId'   => $rs['id'], // userid from the users table
-                            'userName' => $username, // User name
+                            'userId'   => 1112, // userid from the users table
+                            'userName' => "gbbrgbrb", // User name
                         ]
                     ];
                  
                     //header('Content-type: application/json');
-                    $secretKey = base64_decode($json->jwt->key);
-                    $algorithm = $json->jwt->algorithm;
+                    $secretKey = base64_decode($this->settings["jwt"]["key"]);
+                    $algorithm = $this->settings["jwt"]["algorithm"];
                     
                     $jwt = JWT::encode(
                         $data,      //Data to be encoded in the JWT
                         $secretKey, // The signing key
-                        "HS512"  // Algorithm used to sign the token, see https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40#section-3
+                        $algorithm  // Algorithm used to sign the token, see https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40#section-3
                     );
                  
                     $unencodedArray = ['jwt' => $jwt];
@@ -79,7 +74,9 @@ class AuthController {
             }
         }
         //$arr->jwt = "ttvtvt";
-        //return $response->withJson($arr, 201)->withAddedHeader('Access-Control-Allow-Origin', '*');
+        $arr = new stdClass();
+        $arr->status = "Unauthorized";
+        return $response->withJson($arr, 401)->withAddedHeader('Access-Control-Allow-Origin', '*');
     }
     public function logout($request, $response, $args){
         $arr = new stdClass();

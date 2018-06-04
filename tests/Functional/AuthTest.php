@@ -6,21 +6,26 @@ class AuthTest extends BaseTestCase{
     /**
      * Test that the index route returns a rendered response containing the text 'SlimFramework' but not a greeting
      */
-    public function testLogin(){
-        $response = $this->request('POST', '/auth/login');
-        $this->assertEquals($response->getStatusCode(), 200);  
-    }
     public function testLoginWithCorrectCredentials(){
-        // $credentials = [
-        //     "username" => "bmosley",
-        //     "password" => "erergrege"
-        // ];
-        // $response = $this->request('POST', '/auth/login', $credentials);
-        // $this->assertEquals($response->getStatusCode(), 200);
-
+        $credentials = [
+            "username" => "bmosley",
+            "password" => "erergrege",
+            "callback" => "http://localhost:8080#/index"
+        ];
+        $response = $this->request('POST', '/auth/login', $credentials);
+        $this->assertEquals($response->getStatusCode(), 302);
     }
-    public function testLoginWithInCorrectCredentials(){
-        
+    public function testLoginWithNoPasswordCredentials(){
+        $credentials = [
+            "username" => "bmosley",
+            "password" => ""
+        ];
+        $response = $this->request('POST', '/auth/login', $credentials);
+        $this->assertEquals($response->getStatusCode(), 401);
+    }
+    public function testLoginWithNoCredentials(){
+        $response = $this->request('POST', '/auth/login');
+        $this->assertEquals($response->getStatusCode(), 401);
     }
     public function testLogout(){
         $response = $this->request('GET', '/auth/logout');

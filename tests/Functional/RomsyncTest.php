@@ -9,10 +9,14 @@ class RomsyncTest extends BaseTestCase{
     /** @test */
     public function testGames(){
         $response = $this->request('GET', '/api/games');
-        return $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+    public function testGamesWithQuery(){
+        $response = $this->request('GET', '/api/games?q=Street');
+        $this->assertEquals(200, $response->getStatusCode());
     }
     public function testSystems(){
-        $response = $this->request('GET', '/api/games');
+        $response = $this->request('GET', '/api/systems');
         $this->assertEquals(200, $response->getStatusCode());
     }
     public function testDecades(){

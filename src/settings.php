@@ -40,6 +40,11 @@ return [
             'version' => '2.0.1',
             'urlPrefix' => '/api',
             'loginRedirectUri' => 'http://localhost:3000/#/index'
-        ]
+        ],
+        'jwt' => [
+            'key'       => 'jjoomojmojmoj',    
+            'algorithm' => 'HS512' 
+        ],
+        'serverName' => 'romsync.thedarkprincedc.com'
     ]
 ];
