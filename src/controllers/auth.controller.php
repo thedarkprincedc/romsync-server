@@ -25,7 +25,7 @@ class AuthController {
         $arr = new stdClass();
         $usename = $request->getParam("username");
         $password = $request->getParam("password");
-
+        
        
         //$config = Factory::fromFile('/src/config/config.php', true);
         $data = file_get_contents (__DIR__."/../config/config.json");

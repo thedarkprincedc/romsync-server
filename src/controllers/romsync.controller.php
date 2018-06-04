@@ -11,7 +11,10 @@ class RomsyncController {
         
         $user = "romsync_admin";
         $pass = "DricasM4x";
-        R::setup($this->mysql_sql, $user, $pass);
+        if(!R::testConnection()){
+            R::setup($this->mysql_sql, $user, $pass);
+        }
+        
     }
     public function index($request, $response, $args){
         //$this->logger->info("Slim-Skeleton '/' route");

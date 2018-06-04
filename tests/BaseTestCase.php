@@ -7,6 +7,9 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\Environment;
 use \PHPUnit\Framework\TestCase;
+ini_set('error_reporting', E_ALL); // or error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
 
 // require __DIR__ . '/../../src/helper_functions.php';
 // require __DIR__ . '/../../src/database_functions.php';
@@ -19,6 +22,7 @@ use \PHPUnit\Framework\TestCase;
  */
 class BaseTestCase extends TestCase
 {
+    /** @var  \Slim\App */
     protected $app;
     /**
      * Use middleware when running application?
@@ -68,20 +72,21 @@ class BaseTestCase extends TestCase
     {
         // Use the application settings
         $settings = require __DIR__ . '/../src/settings.php';
+   
         // Instantiate the application
         $this->app = $app = new App($settings);
         // Set up dependencies
         require __DIR__ . '/../src/dependencies.php';
-        require_once __DIR__ . '/../vendor/RedBeanPHP5_1_0/rb.php';
+        // require_once __DIR__ . '/../vendor/RedBeanPHP5_1_0/rb.php';
         // Register middleware
         if ($this->withMiddleware) {
             require __DIR__ . '/../src/middleware.php';
             //require __DIR__ . '/../src/middleware/auth.middleware.php';
         }
-        require_once( __DIR__ . '/../src/controllers/romsync.controller.php');
-        require_once( __DIR__ . '/../src/controllers/gamesdb.controller.php');
-        require_once( __DIR__ . '/../src/controllers/youtube.controller.php');
-        require_once( __DIR__ . '/../src/controllers/auth.controller.php');
+        // require_once __DIR__ . '/../src/controllers/romsync.controller.php';
+        // require_once __DIR__ . '/../src/controllers/gamesdb.controller.php';
+        // require_once __DIR__ . '/../src/controllers/youtube.controller.php';
+        // require_once __DIR__ . '/../src/controllers/auth.controller.php';
         // Register routes
         require __DIR__ . '/../src/routes.php';
     }
