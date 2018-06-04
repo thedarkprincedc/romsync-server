@@ -13,6 +13,7 @@ return array(
     'Tests\\' => array($baseDir . '/tests'),
     'Slim\\Views\\' => array($vendorDir . '/slim/php-view/src'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
+    'RedBeanPHP\\' => array($vendorDir . '/gabordemooij/redbean/RedBeanPHP'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),

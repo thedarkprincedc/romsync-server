@@ -34,6 +34,10 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
             'Slim\\Views\\' => 11,
             'Slim\\' => 5,
         ),
+        'R' => 
+        array (
+            'RedBeanPHP\\' => 11,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -90,6 +94,10 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'RedBeanPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
         ),
         'Psr\\Log\\' => 
         array (
