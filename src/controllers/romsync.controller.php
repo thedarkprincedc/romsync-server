@@ -1,4 +1,6 @@
 <?php
+use RedBeanPHP\R as R;
+
 class RomsyncController {
     protected $ci;
     protected $logger;
