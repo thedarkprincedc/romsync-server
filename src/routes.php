@@ -1,9 +1,9 @@
 <?php
 // require_once __DIR__ . '/../vendor/RedBeanPHP5_1_0/rb.php';
-require_once __DIR__ . '/../src/controllers/romsync.controller.php';
-require_once __DIR__ . '/../src/controllers/auth.controller.php';
-require_once __DIR__ . '/../src/controllers/gamesdb.controller.php';
-require_once __DIR__ . '/../src/controllers/youtube.controller.php';
+// require_once __DIR__ . '/../src/controllers/romsync.controller.php';
+// require_once __DIR__ . '/../src/controllers/auth.controller.php';
+// require_once __DIR__ . '/../src/controllers/gamesdb.controller.php';
+// require_once __DIR__ . '/../src/controllers/youtube.controller.php';
 
 // Routes
 $app->get('/', "\RomsyncController:index");
