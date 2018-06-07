@@ -4,7 +4,17 @@
 // require_once __DIR__ . '/../src/controllers/auth.controller.php';
 // require_once __DIR__ . '/../src/controllers/gamesdb.controller.php';
 // require_once __DIR__ . '/../src/controllers/youtube.controller.php';
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
+$app->add(function (Request $request, Response $response, callable $next) {
+    $route = $request->getAttribute('route');
+    $this->logger->info($request->getMethod() . ' ' . $route->getPattern(), [$route->getArguments()]);
+    $response = $next($request, $response);
+    $this->logger->info($response->getStatusCode() . ' ' . $response->getReasonPhrase());
+
+    return $response;
+});
 // Routes
 $app->get('/', "\RomsyncController:index");
 $app->get('/404', "\RomsyncController:error");

@@ -10,12 +10,11 @@ class RomsyncController {
         $this->logger = $this->ci->get("logger");
         $this->settings = $this->ci->get("settings");
         $this->mysql_sql = $this->ci->get("mysql_sql");
+        $this->ci->get("database");
         
-        $user = "romsync_admin";
-        $pass = "DricasM4x";
-        if(!R::testConnection()){
-            R::setup($this->mysql_sql, $user, $pass);
-        }
+        // if(!R::testConnection()){
+        //     R::setup($this->mysql_sql, $user, $pass);
+        // }
         
     }
     public function index($request, $response, $args){
@@ -35,6 +34,7 @@ class RomsyncController {
             ->render($response, 'error-404-template.phtml', $args);
     }
     public function games($request, $response, $args){
+       // $this->logger->critical("tgw4jngojn4wojgn3jongoj");
         $q = '%';
         if($request->getParam('q')){
             $q = $request->getParam('q') . "%";

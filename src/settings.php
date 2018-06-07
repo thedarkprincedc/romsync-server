@@ -3,7 +3,8 @@ return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
-
+        // Only set this if you need access to route within middleware
+        'determineRouteBeforeAppMiddleware' => true,
         // Renderer settings
         'renderer' => [
             'template_path' => __DIR__ . '/../templates/',
@@ -26,7 +27,9 @@ return [
         'mysql' => [
             'hostname' => '192.168.2.27',
             'port' => '3307',
-            'database' => 'romsync'
+            'database' => 'romsync',
+            'username' => 'romsync_admin',
+            'password' => 'DricasM4x'
         ],
         'sqlite' => [
             'path' => '/tmp/dbfile.txt'

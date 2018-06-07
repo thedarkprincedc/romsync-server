@@ -1,6 +1,6 @@
 <?php
 // DIC configuration
-
+use RedBeanPHP\R as R;
 $container = $app->getContainer();
 
 // view renderer
@@ -15,6 +15,7 @@ $container['logger'] = function ($c) {
     $logger = new Monolog\Logger($settings['name']);
     $logger->pushProcessor(new Monolog\Processor\UidProcessor());
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
+    $logger->pushHandler(new Monolog\Handler\StreamHandler('php://stdout', \Monolog\Logger::DEBUG));
     return $logger;
 };
 
@@ -23,12 +24,23 @@ $container['mysql_sql'] = function ($c){
     $hostname = $settings['hostname'];
     $port = $settings['port'];
     $database = $settings['database'];
-    return "mysql:host={$hostname}:{$port};dbname={$database}";
+    return "mysql:host={$hostname}:{$port};dbname={$database};";
 };
 
 $container['sqlite_sql'] = function ($c){
     $settings = $c->get('settings')["sqlite"] || "/tmp/dbfile.txt";
     return "sqlite:{$settings}";
+};
+
+$container['database'] = function ($c){
+    $connString = $c->get('mysql_sql');
+    $s = $c->get('settings')['mysql'];
+    $user = $s['username'];
+    $pass = $s['password'];
+    if(!R::testConnection()){
+        R::setup($connString,$user,$pass);
+        R::debug( TRUE , 1);
+    }
 };
 
 $container['name'] = function ($c){
