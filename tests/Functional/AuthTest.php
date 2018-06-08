@@ -13,7 +13,7 @@ class AuthTest extends BaseTestCase{
             "callback" => "http://localhost:8080#/index"
         ];
         $response = $this->request('POST', '/auth/login', $credentials);
-        $this->assertEquals($response->getStatusCode(), 302);
+        $this->assertEquals(302, $response->getStatusCode()); 
     }
     public function testLoginWithNoPasswordCredentials(){
         $credentials = [
@@ -21,14 +21,14 @@ class AuthTest extends BaseTestCase{
             "password" => ""
         ];
         $response = $this->request('POST', '/auth/login', $credentials);
-        $this->assertEquals($response->getStatusCode(), 401);
+        $this->assertEquals(401, $response->getStatusCode()); 
     }
     public function testLoginWithNoCredentials(){
         $response = $this->request('POST', '/auth/login');
-        $this->assertEquals($response->getStatusCode(), 401);
+        $this->assertEquals(401, $response->getStatusCode()); 
     }
     public function testLogout(){
         $response = $this->request('GET', '/auth/logout');
-        $this->assertEquals($response->getStatusCode(), 201);  
+        $this->assertEquals(201, $response->getStatusCode()); 
     }
 }
