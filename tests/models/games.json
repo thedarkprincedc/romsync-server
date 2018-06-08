@@ -1,0 +1,226 @@
+[{
+    "id": "127547",
+    "name": "'88 Games",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/88games.zip",
+    "manufacturer": "Konami",
+    "year": "1988",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127538",
+    "name": "'99: The Last War (Kyugo)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/99lstwark.zip",
+    "manufacturer": "Crux \/ Kyugo",
+    "year": "1985",
+    "cloneof": "repulse",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127540",
+    "name": "'99: The Last War (set 1)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/99lstwar.zip",
+    "manufacturer": "Crux \/ Proma",
+    "year": "1985",
+    "cloneof": "repulse",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127539",
+    "name": "'99: The Last War (set 2)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/99lstwara.zip",
+    "manufacturer": "Crux \/ Proma",
+    "year": "1985",
+    "cloneof": "repulse",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "119618",
+    "name": "'L' Of A Day (Project) (Cash set) (PROCONN)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/pr_lday.zip",
+    "manufacturer": "Project",
+    "year": "199?",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "119617",
+    "name": "'L' Of A Day (Project) (Token set) (PROCONN)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/pr_ldaya.zip",
+    "manufacturer": "Project",
+    "year": "199?",
+    "cloneof": "pr_lday",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127657",
+    "name": "005",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/005.zip",
+    "manufacturer": "Sega",
+    "year": "1981",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "136643",
+    "name": "007 - The World is Not Enough.7z",
+    "filename": "\/volumes\/shared\/roms\/console\/Nintendo64 [2614] [FU",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "n64",
+    "uuid": null
+}, {
+    "id": "127622",
+    "name": "1 on 1 Government (Japan)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/1on1gov.zip",
+    "manufacturer": "Tecmo",
+    "year": "2000",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127655",
+    "name": "10-Yard Fight '85 (US, Taito license)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/10yard85.zip",
+    "manufacturer": "Irem (Taito license)",
+    "year": "1985",
+    "cloneof": "10yard",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127654",
+    "name": "10-Yard Fight (Japan)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/10yardj.zip",
+    "manufacturer": "Irem",
+    "year": "1983",
+    "cloneof": "10yard",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "127656",
+    "name": "10-Yard Fight (World, set 1)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/10yard.zip",
+    "manufacturer": "Irem",
+    "year": "1983",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "123173",
+    "name": "1000 Miglia: Great 1000 Miles Rally (94\/06\/13)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/gtmra.zip",
+    "manufacturer": "Kaneko",
+    "year": "1994",
+    "cloneof": "gtmr",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "123177",
+    "name": "1000 Miglia: Great 1000 Miles Rally (94\/07\/18)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/gtmr.zip",
+    "manufacturer": "Kaneko",
+    "year": "1994",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "136642",
+    "name": "1080 Snowboarding.7z",
+    "filename": "\/volumes\/shared\/roms\/console\/Nintendo64 [2614] [FU",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "n64",
+    "uuid": null
+}, {
+    "id": "133707",
+    "name": "15 Puzzle 1 (PD).zip",
+    "filename": "\/volumes\/shared\/roms\/console\/snes roms\/PD\/15 Puzzl",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "snes",
+    "uuid": null
+}, {
+    "id": "133706",
+    "name": "15 Puzzle 2 (PD).zip",
+    "filename": "\/volumes\/shared\/roms\/console\/snes roms\/PD\/15 Puzzl",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "snes",
+    "uuid": null
+}, {
+    "id": "133705",
+    "name": "15 Puzzle 3 (PD).zip",
+    "filename": "\/volumes\/shared\/roms\/console\/snes roms\/PD\/15 Puzzl",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "snes",
+    "uuid": null
+}, {
+    "id": "133704",
+    "name": "15 Puzzle 4 (PD).zip",
+    "filename": "\/volumes\/shared\/roms\/console\/snes roms\/PD\/15 Puzzl",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "snes",
+    "uuid": null
+}, {
+    "id": "128203",
+    "name": "16 Tiles Mahjong (Unl) [c].bin",
+    "filename": "\/volumes\/shared\/roms\/console\/sega genesis\/Unlicens",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "sega_genesis",
+    "uuid": null
+}, {
+    "id": "130778",
+    "name": "16 Tiles Mahjong (Unl) [h1].bin",
+    "filename": "\/volumes\/shared\/roms\/console\/sega genesis\/Hacks\/16",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "sega_genesis",
+    "uuid": null
+}, {
+    "id": "130777",
+    "name": "16 Tiles Mahjong (Unl) [h2].bin",
+    "filename": "\/volumes\/shared\/roms\/console\/sega genesis\/Hacks\/16",
+    "manufacturer": null,
+    "year": "",
+    "cloneof": "",
+    "system": "sega_genesis",
+    "uuid": null
+}, {
+    "id": "125238",
+    "name": "18 Challenge Pro Golf (DECO Cassette, Japan)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/cprogolf18.zi",
+    "manufacturer": "Data East Corporation",
+    "year": "1982",
+    "cloneof": "cprogolf",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "119568",
+    "name": "18 Holes Pro Golf (set 1)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/progolf.zip",
+    "manufacturer": "Data East Corporation",
+    "year": "1981",
+    "cloneof": "",
+    "system": "arcade",
+    "uuid": null
+}, {
+    "id": "119567",
+    "name": "18 Holes Pro Golf (set 2)",
+    "filename": "\/volumes\/shared\/roms\/Mame 0.149 Roms\/progolfa.zip",
+    "manufacturer": "Data East Corporation",
+    "year": "1981",
+    "cloneof": "progolf",
+    "system": "arcade",
+    "uuid": null
+}]

@@ -60,8 +60,7 @@ class RomsyncController {
         foreach( $result as $employee ) {
             $arr[] = ($employee);
         }
-        return $response->withJson($arr, 200)
-                ->withAddedHeader('Access-Control-Allow-Origin', '*');
+        return $response->withJson($arr, 200);
     }
     public function systems($request, $response, $args){
         // $result = R::exec( 'SELECT system FROM roms GROUP BY system' );
@@ -69,8 +68,7 @@ class RomsyncController {
         $arr[0] = new stdClass();
         $arr[0]->name = "Arcade";
         $arr[0]->code = "arcade";
-        return $response->withJson($arr, 200)
-                ->withAddedHeader('Access-Control-Allow-Origin', '*');
+        return $response->withJson($arr, 200);
     }
     public function years($request, $response, $args){
         $result = R::findAll('years');
@@ -78,8 +76,7 @@ class RomsyncController {
         foreach( $result as $employee ) {
             $arr[] = ($employee);
         }
-        return $response->withJson($arr, 201)
-                ->withAddedHeader('Access-Control-Allow-Origin', '*');
+        return $response->withJson($arr, 201);
     }
     public function decades($request, $response, $args){
         $result = R::findAll('decades');
@@ -87,8 +84,7 @@ class RomsyncController {
         foreach( $result as $employee ) {
             $arr[] = ($employee);
         }
-        return $response->withJson($arr, 201)
-                ->withAddedHeader('Access-Control-Allow-Origin', '*');
+        return $response->withJson($arr, 201);
     }
     public function image($request, $response, $args) {
         $filename = $args['filename'];
