@@ -15,6 +15,31 @@ $app->add(function (Request $request, Response $response, callable $next) {
 
     return $response;
 });
+$app->add(function($request, $response, $next) {
+    $logger = $this->get("logger");
+    try {
+      return $next($request, $response);
+    }
+    catch(\App\Exceptions\AppException $e)
+    {
+      $logger->addCritical('Application Error: ' . $e->getMessage());
+      return $response->withJson([
+        'status' => 'error',
+        'data' => $e->getData(),
+        'message' => $e->getMessage()
+      ]);
+    }
+    catch(\Exception $e)
+    {
+      $logger->addCritical('Unhandled Exception: ' . $e->getMessage());
+    //   $container->SMSService->send(getenv('ADMIN_MOBILE'), "Shit has hit the fan! Run to your computer and check the error logs. Beep. Boop.");
+      return $response->withJson([
+        'status' => 'error',
+        'data' => null,
+        'message' => 'It is not possible to perform this action right now'
+      ]);
+    }
+  });
 // Routes
 $app->get('/', "\RomsyncController:index");
 $app->get('/404', "\RomsyncController:error");
