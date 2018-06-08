@@ -1,5 +1,5 @@
 <?php
-class AuthMiddleware
+class LoggingMiddleware
 {
     /**
      * Example middleware invokable class
