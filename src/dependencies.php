@@ -43,7 +43,7 @@ $container['database'] = function ($c){
         R::setup($connString,$user,$pass);
         // require(__DIR__. "../../vendor/gabordemooij/redbean/RedBeanPHP/Plugin/StdErrorLogger.php");
         // R::getDatabaseAdapter()->addEventListener('sql_exec',new RedBean_Plugin_StdErrorLogger());
-        R::debug( TRUE , 2);
+        //R::debug( TRUE , 2);
         // $myLogger = new \RedBeanPHP\Logger\RDefault;
         // $customLogger = new RomsyncQueryLogger;
         // $database = R::getDatabaseAdapter()
