@@ -10,10 +10,12 @@ use \Psr\Http\Message\ResponseInterface as Response;
 $app->add(function (Request $request, Response $response, callable $next) {
     $route = $request->getAttribute('route');
     $this->logger->info($request->getMethod() . ' ' . $route->getPattern(), [$route->getArguments()]);
+    
     $response = $next($request, $response);
+
     $this->logger->info($response->getStatusCode() . ' ' . $response->getReasonPhrase());
 
-    return $response;
+    return $response->withHeader('Access-Control-Allow-Origin', '*');
 });
 $app->add(function($request, $response, $next) {
     $logger = $this->get("logger");
