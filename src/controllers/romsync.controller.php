@@ -43,12 +43,27 @@ class RomsyncController {
         if($request->getParam('system')){
             $system = $request->getParam('system');
         }
+        $gameType = null;
+        if($request->getParam("gameType")){
+            $gameType = $request->getParam("gameType");
+            if(strcasecmp($gameType, "primary") == 0){
+                $gameType = "primary";
+            } else if(strcasecmp($gameType, "clones") == 0){
+                $gameType = "clones";
+            }
+        }
+
         $page = $request->getParam('page');
         $limit = 25;
         $offset = $page * $limit;
-        
-        $result = R::find('roms', 
-            'name LIKE :name AND system LIKE :system ORDER BY name LIMIT :limit OFFSET :offset', 
+        $whereClause = [
+            'clones' => 'name LIKE :name AND system LIKE :system AND cloneof IS NOT NULL ORDER BY name LIMIT :limit OFFSET :offset',
+            'primary' => 'name LIKE :name AND system LIKE :system AND cloneof IS NULL ORDER BY name LIMIT :limit OFFSET :offset',
+            'default' => 'name LIKE :name AND system LIKE :system ORDER BY name LIMIT :limit OFFSET :offset'
+        ];
+        $clause = ($whereClause[$gameType])?$whereClause[$gameType]: $whereClause["default"];
+       
+        $result = R::find('roms', $clause, 
             array(
                 ':limit' => $limit,
                 ':offset' => $offset,
