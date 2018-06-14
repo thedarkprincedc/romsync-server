@@ -60,6 +60,8 @@ $app->group('/api', function () use ($app) {
     $app->group('/youtube', function () use ($app) {
         $app->get('/search', "\YoutubeController:search");
     });
+    $app->get('/sync', "\SyncController:sync");
+    $app->get('/unsync', "\SyncController:unsync");
 });
 $app->group('/auth', function () use ($app) {
     $app->post('/login', "\AuthController:login");

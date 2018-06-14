@@ -43,6 +43,7 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'PhpAmqpLib\\' => 11,
         ),
         'M' => 
         array (
@@ -110,6 +111,10 @@ class ComposerStaticInit22fd976b2f9d63c36a87c94f8f2dec65
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
         ),
         'Monolog\\' => 
         array (

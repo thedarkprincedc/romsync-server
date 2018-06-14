@@ -34,6 +34,12 @@ return [
         'sqlite' => [
             'path' => '/tmp/dbfile.txt'
         ],
+        'amqpconnection'=> [
+            'hostname' => '192.168.2.27',
+            'port' => '32782',
+            'username' => 'guest',
+            'password' => 'guest'
+        ],
         'locations' => [
             'roms' => 'roms',
             'images' => 'images'

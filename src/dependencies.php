@@ -1,7 +1,8 @@
 <?php
 // DIC configuration
 use RedBeanPHP\R as R;
-
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
 $container = $app->getContainer();
 
 // view renderer
@@ -53,6 +54,11 @@ $container['database'] = function ($c){
     if(!R::testConnection()){
         $logger->critical("Could not connect to database");
     }
+};
+$container["AMQPStreamConnection"] = function($c){
+    $s = $c->get('settings')['amqpconnection'];
+    $connection = new AMQPStreamConnection($s["hostname"], $s["port"], $s["username"], $s["password"]);
+    return $connection;
 };
 
 $container['name'] = function ($c){
