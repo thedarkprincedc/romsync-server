@@ -22,7 +22,8 @@ return [
         'url' => [
             'youtube_search' => 'https://www.googleapis.com/youtube/v3/search',
             'youtube_embed' => 'https://www.youtube.com/embed/',
-            'gamesdb_search' => 'http://thegamesdb.net/api/GetGame.php'
+            'gamesdb_search' => 'http://thegamesdb.net/api/GetGame.php',
+            'rom_location' => 'http://thedarkprincedc.com/download' 
         ],
         'mysql' => [
             'hostname' => '192.168.2.27',

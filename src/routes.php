@@ -62,6 +62,7 @@ $app->group('/api', function () use ($app) {
     });
     $app->get('/sync', "\SyncController:sync");
     $app->get('/unsync', "\SyncController:unsync");
+    $app->get('/queue', "\SyncController:getqueue");
 });
 $app->group('/auth', function () use ($app) {
     $app->post('/login', "\AuthController:login");

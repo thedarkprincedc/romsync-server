@@ -27,10 +27,6 @@ require __DIR__ . '/../src/middleware.php';
 //require __DIR__ . '/../src/middleware/auth.middleware.php';
 
 // Register controllers
-// require __DIR__ . '/../src/controllers/romsync.controller.php';
-// require __DIR__ . '/../src/controllers/auth.controller.php';
-// require __DIR__ . '/../src/controllers/gamesdb.controller.php';
-// require __DIR__ . '/../src/controllers/youtube.controller.php';
 
 // Register routes
 require __DIR__ . '/../src/routes.php';
