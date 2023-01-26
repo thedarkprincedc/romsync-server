@@ -5,6 +5,7 @@ const authorizationRoute = require('./authorization.route')
 const express = require('express');
 const router = express.Router()
 
-router.use('/', authorizationRoute)
-router.use('/', gamesRoute)
+router.use(authorizationRoute)
+router.use(gamesRoute)
+
 module.exports = router;
