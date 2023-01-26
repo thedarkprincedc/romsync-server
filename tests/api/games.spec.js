@@ -22,21 +22,28 @@ test.afterAll(async ({ }) => {
 });
 
 test('should query a specific game', async() => {
-    const games = await apiContext.get('/api/games/sfiii', {})
-    expect(games.ok()).toBeTruthy()
+    const response = await apiContext.get('/api/games', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+    //console.log(await response.json())
+    //console.log(await response[0])
 })
 
 test('should query all games', async() => {
-    const games = await apiContext.get('/api/games', {})
-    expect(games.ok()).toBeTruthy()
+    const response = await apiContext.get('/api/games', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+    //console.log(await response.json())
 })
 
 test('should query all systems', async() => {
-    const games = await apiContext.get('/api/years', {})
-    expect(games.ok()).toBeTruthy()
+    const response = await apiContext.get('/api/years', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })
 
 test('should query all manufacturers', async() => {
-    const games = await apiContext.get('/api/manufacturers', {})
-    expect(games.ok()).toBeTruthy()
+    const response = await apiContext.get('/api/manufacturers', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })

@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodb.database, config.mongodb.options);
   
 mongoose.connection
-    .once('open', () => console.log('Connected! %s', config.mongo.database))
+    .once('open', () => console.log('Connected! %s', config.mongodb.database))
     .on('error', (error) => console.warn('Error: %s', error));
 
 module.exports = mongoose;

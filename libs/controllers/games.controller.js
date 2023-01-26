@@ -1,18 +1,23 @@
+const game = require('../models/games.model');
 
 async function getGames(req, res){
-    res.status(200).json({})
+    const games = await game.find({})
+    res.status(200).json(games)
 }
 
 async function getSystems(req, res){
-    res.status(200).json({})
+    const games = await game.find({}, 'system').distinct('system')
+    res.status(200).json(games)
 }
 
 async function getYears(req, res){
-    res.status(200).json({})
+    const games = await game.find({}, 'year').distinct('year')
+    res.status(200).json(games)
 }
 
 async function getManufacturers(req, res){
-    res.status(200).json({})
+    const games = await game.find({}, 'manufacturer').distinct('manufacturer')
+    res.status(200).json(games)
 }
 
 async function getYoutubeSearch(req, res){

@@ -22,27 +22,25 @@ test.afterAll(async ({ }) => {
 });
 
 test('should login', async() => {
-    const login = await apiContext.get(`/api/login`);
-    expect(login.ok()).toBeTruthy();
-    // const newIssue = await apiContext.post(`/repos/${USER}/${REPO}/issues`, {
-    //     data: {
-    //       title: '[Feature] request 1',
-    //     }
-    //   });
-    //   expect(newIssue.ok()).toBeTruthy();
+    const response = await apiContext.get(`/api/login`);
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })
 
 test('should login then logout', async() => {
-    const login = await apiContext.get(`/api/logout`);
-    expect(login.ok()).toBeTruthy();
+    const response = await apiContext.get(`/api/logout`);
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })
 
 test('should register', async() => {
-    const login = await apiContext.get(`/api/register`);
-    expect(login.ok()).toBeTruthy();
+    const response = await apiContext.get(`/api/register`);
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })
 
 test('should get favorites', async() => {
-    const login = await apiContext.get(`/api/favorites`);
-    expect(login.ok()).toBeTruthy();
+    const response = await apiContext.get(`/api/favorites`);
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
 })

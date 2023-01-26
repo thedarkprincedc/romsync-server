@@ -11,6 +11,9 @@ const cookieParser = require('cookie-parser');
 const routes = require('../libs/routes')
 
 const morganMiddleware = require('../libs/middleware/morgan.middleware')
+
+app.set('json spaces', 2);
+
 app.use(morganMiddleware());
 app.use(cors({
     origin: '*',
