@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bin/server.js",
     "start:watch": "nodemon",
-    "test": "npx playwright test",
+    "test": "NODE_ENV=local npx playwright test",
     "test:dot": "npm test -- --reporter=dot",
     "test:html": "npm test -- --reporter=html"
   },

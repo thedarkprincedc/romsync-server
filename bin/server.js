@@ -1,4 +1,4 @@
-const mongodb = require('../libs/mongodb')
+const mongoose = require('../libs/mongoose')
 const banner = require('../libs/header')
 const express = require('express')
 const app = express();
