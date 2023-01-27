@@ -6,6 +6,8 @@ const seedGames = require('../temp/games.json');
 const config = require('config')
 
 console.log(config)
+
+mongoose.set('strictQuery', config.mongodb.strictQuery || false);
 mongoose.connect(config.mongodb.database, config.mongodb.options)
     .then(() => console.log('Mongo connection open!!'))
     .catch((error) => console.log(error))

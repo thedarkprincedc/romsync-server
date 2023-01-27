@@ -1,4 +1,4 @@
-const romsyncOptions = {
+const rsOptions = {
     server: {
         port: 3000
     },
@@ -10,8 +10,17 @@ const romsyncOptions = {
             authSource: "admin",
             user: 'root',
             pass: 'rootpassword'
-        }
+        },
+        strictQuery: true
+    },
+    youtube: {
+        apiKey: ''
+    },
+    sentry: {
+        dsn: '',
+        debug: true,
+        environment: 'production'
     }
 };
 
-module.exports = romsyncOptions;
+module.exports = rsOptions;

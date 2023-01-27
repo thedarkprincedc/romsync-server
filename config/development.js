@@ -1,6 +1,10 @@
-const romsyncOptions = {
+const rsOptions = {
     server: {
-        port: 3000
+        port: 3000,
+        certificates: {
+            publicKey: './certs/publicKey.pem',
+            privateKey: './certs/privateKey.pem'
+        }
     },
     mongodb: {
         database: 'mongodb://localhost:27017/romsync-dev',
@@ -14,8 +18,8 @@ const romsyncOptions = {
         strictQuery: true
     },
     youtube: {
-        apiKey: ""
+        apiKey: 'AIzaSyBp2jfEZIR_Q52wgKCGJrIcL_YBVMzV65k'
     }
 };
 
-module.exports = romsyncOptions;
+module.exports = rsOptions;

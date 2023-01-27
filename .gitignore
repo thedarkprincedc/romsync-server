@@ -2,5 +2,6 @@ dist/
 screenshots/
 videos/
 node_modules/
-mongodb/
+mongodb/database/
 temp/
+certs/

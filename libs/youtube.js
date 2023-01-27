@@ -1,16 +1,15 @@
 const axios = require('axios')
 const config = require('config');
 
-async function searchYoutube(data, apiKey){
-    const {q, part, type} = data;
+async function searchYoutube(query, apiKey){
     const request = {
         url: "https://www.googleapis.com/youtube/v3/search",
         method: 'get',
         params: {
-            q: q || '',
-            part: part || 'snippet',
+            q: query || '',
+            part: 'snippet',
             key: apiKey || config.youtube.apiKey,
-            type: type || 'video'
+            type: 'video'
         }
     }
     const embedUrls = (data) => {
@@ -20,7 +19,9 @@ async function searchYoutube(data, apiKey){
             return v;
         })
     }
-    return axios(request).then(embedUrls);
+
+    return axios(request)
+        .then(({data}) => embedUrls(data));
 }
 
 module.exports = {

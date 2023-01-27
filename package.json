@@ -5,12 +5,16 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "node bin/server.js",
+    "start:prod": "NODE_ENV=production node bin/server",
     "start:watch": "nodemon",
-    "start:mongodb": "docker-compose up -d",
+    "start:mongo": "cd ./mongodb && docker-compose up -d",
+    "stop:mongo": "cd ./mongodb && docker-compose down",
+    "build": "rimraf ./dist && ",
     "test": "NODE_ENV=development npx playwright test",
     "test:dot": "npm test -- --reporter=dot",
     "test:html": "npm test -- --reporter=html",
-    "seed:database": "node ./scripts/generate-seed-files.js && NODE_ENV=development node ./scripts/seed.js"
+    "generate:certs": "node ./scripts/generate-certificates.js",
+    "generate:seeds": "node ./scripts/generate-seed-files.js && NODE_ENV=development node ./scripts/seed.js",
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +33,7 @@
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-beta.0",
     "@playwright/test": "^1.30.0",
+    "node-forge": "^1.3.1",
     "playwright": "^1.30.0",
     "xml2js": "^0.4.23"
   }
