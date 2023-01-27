@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 
 let apiContext;
 
-test.beforeAll(async ({ playwright }) => {
+test.beforeAll(async ({ playwright, baseURL }) => {
     apiContext = await playwright.request.newContext({
         // All requests we send go to this API endpoint.
-        baseURL: process.env.ROMSYNC_URL || 'http://localhost:3000',
+        baseURL: baseURL,
         extraHTTPHeaders: {
             // We set this header per GitHub guidelines.
            // 'Accept': 'application/vnd.github.v3+json',

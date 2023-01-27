@@ -29,6 +29,7 @@
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-beta.0",
     "@playwright/test": "^1.30.0",
-    "playwright": "^1.30.0"
+    "playwright": "^1.30.0",
+    "xml2js": "^0.4.23"
   }
 }

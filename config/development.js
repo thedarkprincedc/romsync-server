@@ -9,8 +9,12 @@ const romsyncOptions = {
             useUnifiedTopology: true,
             authSource: "admin",
             user: 'root',
-            pass: 'rootpassword'
-        }
+            pass: 'rootpassword',
+        },
+        strictQuery: true
+    },
+    youtube: {
+        apiKey: ""
     }
 };
 
