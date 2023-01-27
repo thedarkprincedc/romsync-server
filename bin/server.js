@@ -26,8 +26,6 @@ app.use(compression())
 
 app.use('/api', routes)
 
-
-
 app.listen(server.port, () => {
     banner.showBanner()
     console.log(`Server listening on port %s! Go to http://localhost:%s/`, server.port, server.port)

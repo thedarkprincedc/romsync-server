@@ -20,6 +20,6 @@ export default defineConfig({
     reporter: 'dot',
 
     use: {
-        baseURL: 'http://localhost:3000/', //// process.env.ROMSYNC_URL || 'http://localhost:3000',
+        baseURL: 'http://localhost:3000/', //// process.env.ROMSYNC_URL',
     },
 });
