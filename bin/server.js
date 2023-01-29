@@ -26,10 +26,26 @@ app.use(compression())
 
 app.use('/api', routes)
 
-app.listen(server.port, () => {
+const onServerStarted = (server)=>{
+    const secure = server.host || false
+    const secureText = (secure) ? 'https' : 'http';
     banner.showBanner()
-    console.log(`Server listening on port %s! Go to http://localhost:%s/`, server.port, server.port)
-})
+    console.log(`Server listening on port %s! Go to %s://localhost:%s/`, 
+        server.port, secureText, server.port)
+}
+
+if(server.https){
+    https.createServer(server.options, app).listen(() => onServerStarted(server))
+} else {
+    app.listen(server.port, () => onServerStarted(server))
+}
+
+
+
+// function startHttpsServer(){
+//     https.createServer(serverConfig.options, app)
+//         .listen(serverConfig.port, () => onServerStarted())
+// }
 
 // https.createServer(server, app)
 //     .listen(server.port, () => {

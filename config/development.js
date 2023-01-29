@@ -1,9 +1,15 @@
 const rsOptions = {
     server: {
         port: 3000,
-        certificates: {
-            publicKey: './certs/publicKey.pem',
-            privateKey: './certs/privateKey.pem'
+        options: {
+            key: './certs/publicKey.pem',
+            cert: './certs/certificate.pem'
+        }
+    },
+    jwt: {
+        cookieName: 'romsync-dev',
+        token: {
+
         }
     },
     mongodb: {

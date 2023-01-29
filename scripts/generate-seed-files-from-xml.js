@@ -1,32 +1,36 @@
 const fs = require('fs');
 const xml2js = require('xml2js');
 const path = require('path');
+const glob = require('glob')
 
-const inputPath = path.join(__dirname, '/../seed-input')
-const outputPath = path.join(__dirname, '/../temp')
 
-processDatFile(inputPath+'/arcade.xml')
+async function processSeedFiles(){
+    const destDir = path.join(__dirname, '/../temp/gameslist.json')
 
-function processDatFile(filename){
-    const xmldata = fs.readFileSync(filename, {encoding: 'utf-8'});
-    const xmlparser = new xml2js.Parser();
-    xmlparser(xmldata, (error, result) => {
-        if(error){
-            throw new Error('Error happened')
-        }
-        const {header, machines} = result.datafile;
+    const setName = (name) => {
+        return (name) ? name[0]: null
+    }
     
-        for(const machine in machines){
+    let games = [];
+    glob.sync('temp/*.dat', {}).forEach(async (value)=>{
+        const file = fs.readFileSync(value, {encoding: 'utf-8'});
+        const xmlparser = new xml2js.Parser();
+        const xmldata = await xmlparser.parseStringPromise(file);
+        const {header, machine} = xmldata.datafile
+        
+        for(const item in machine){
             const game = {
-                name: setName(machines[machine].description),
-                manufacturer: setName(machines[machine].manufacturer),
+                name: setName(machine[item].description),
+                manufacturer: setName(machine[item].manufacturer),
                 system: header[0].name[0],
-                year: setName(machines[machine].year),
-                cloneof: machines[machine]['$'].cloneof || null,
-                filename: machines[machine]['$'].name
+                year: setName(machine[item].year),
+                cloneof: machine[item]['$'].cloneof || null,
+                filename: machine[item]['$'].name
             }
-            games.push(game);
+            games.push(game)
         }
-    });
+        fs.writeFileSync(destDir, JSON.stringify(games, null, 2))
+    })
 }
+processSeedFiles()
 
