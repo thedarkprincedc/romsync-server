@@ -13,18 +13,18 @@ const rsOptions = {
         }
     },
     mongodb: {
-        database: 'mongodb://localhost:27017/romsync-dev',
+        database: process.env.MONGO_DATABASE || 'mongodb://localhost:27017/romsync-dev',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             authSource: "admin",
-            user: 'root',
-            pass: 'rootpassword',
+            user: process.env.MONGO_USERNAME || 'root',
+            pass: process.env.MONGO_PASSWORD || 'rootpassword',
         },
         strictQuery: true
     },
     youtube: {
-        apiKey: 'AIzaSyBp2jfEZIR_Q52wgKCGJrIcL_YBVMzV65k'
+        apiKey: process.env.YOUTUBE_APIKEY || 'AIzaSyBp2jfEZIR_Q52wgKCGJrIcL_YBVMzV65k'
     }
 };
 

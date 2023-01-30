@@ -1,9 +1,9 @@
 const rsOptions = {
     server: {
-        port: 3000,
+        port: process.env.ROMSYNC_PORT || 3000,
         certificates: {
-            publicKey: './certs/publicKey.pem',
-            privateKey: './certs/privateKey.pem'
+            publicKey: process.env.ROMSYNC_PUBLIC_KEY || './certs/publicKey.pem',
+            privateKey: process.env.ROMSYNC_PRIVATE_KEY || './certs/privateKey.pem'
         }
     },
     jwt: {
@@ -13,21 +13,21 @@ const rsOptions = {
         }
     },
     mongodb: {
-        database: 'mongodb://localhost:27017/romsync-stage',
+        database: process.env.MONGO_DATABASE,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             authSource: "admin",
-            user: 'root',
-            pass: 'rootpassword'
+            user: process.env.MONGO_USERNAME,
+            pass: process.env.MONGO_PASSWORD
         },
         strictQuery: true
     },
     youtube: {
-        apiKey: 'AIzaSyBp2jfEZIR_Q52wgKCGJrIcL_YBVMzV65k'
+        apiKey: process.env.YOUTUBE_APIKEY
     },
     sentry: {
-        dsn: '',
+        dsn: process.env.SENTRY_DSN,
         debug: true,
         environment: 'production'
     }

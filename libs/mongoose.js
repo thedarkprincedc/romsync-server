@@ -5,10 +5,15 @@ const config = require('config');
 mongoose.Promise = global.Promise;
 
 mongoose.set('strictQuery', config.mongodb.strictQuery || false);
-mongoose.connect(config.mongodb.database, config.mongodb.options);
 
 mongoose.connection
     .once('open', () => console.log('Connected! %s', config.mongodb.database))
-    .on('error', (error) => console.warn('Error: %s', error));
+    .on('error', (error) => console.error('Error: %s', error));
 
-module.exports = mongoose;
+
+async function start(){
+    await mongoose.connect(config.mongodb.database, config.mongodb.options);
+}
+module.exports = {
+    start
+};

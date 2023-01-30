@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  # frontend:
+  #   build: ../romsync-app/
+  #   #environment:
+  #   ports:
+  #     - 8080:80
+  #   restart: unless-stopped
+  # server:
+  #   build: ./
+  #   environment:
+  #     - MONGO_DATABASE=mongodb://mongodb:27017/romsync-dev
+  #   ports:
+  #     - 5000:3000
+  #   restart: unless-stopped
+  mongodb:
+    image : mongo
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=rootpassword
+    volumes:
+      - ./mongodb/database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
