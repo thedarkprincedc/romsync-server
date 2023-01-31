@@ -23,7 +23,7 @@ test.afterAll(async ({ }) => {
     await apiContext.dispose();
 });
 
-test('should query a specific game', async() => {
+test('/api/games - should query a specific game', async() => {
     const response = await apiContext.get('/api/games', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
@@ -32,21 +32,48 @@ test('should query a specific game', async() => {
     //console.log(await response[0])
 })
 
-test('should query all games', async() => {
+test('/api/game - should query all games', async() => {
     const response = await apiContext.get('/api/games', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
     //console.log(await response.json())
 })
+test('/api/query - should query all games', async() => {
+    const response = await apiContext.post('/api/query', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+    //console.log(await response.json())
+})
 
-test('should query all systems', async() => {
+test('/api/query - should query by id', async() => {
+    const response = await apiContext.post('/api/query', {
+        id: '63d3488f731cd637bdeaf3d1'
+    })
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+    //console.log(await response.json())
+})
+
+test('/api/years - should query all years', async() => {
     const response = await apiContext.get('/api/years', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
 })
 
-test('should query all manufacturers', async() => {
+test('/api/manufacturers - should query all manufacturers', async() => {
     const response = await apiContext.get('/api/manufacturers', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+})
+
+test('/api/systems - should query all systems', async() => {
+    const response = await apiContext.get('/api/systems', {})
+    expect(response.ok()).toBeTruthy()
+    expect(response.status()).toBe(200)
+})
+
+test('/api/youtube - should query youtube', async() => {
+    const response = await apiContext.get('/api/youtube/streetfighter 2', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
 })

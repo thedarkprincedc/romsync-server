@@ -8,26 +8,42 @@ async function games(req, res){
     res.status(200).json(games)
 }
 
-async function query(req, res){
+async function gamesById(req, res){
     const {id} = req.params;
-    const games = await game.find({_id: id})
-        //.then( (response) => Object.values(response)[0])
-        // .then((response) => {
-        //     const game = response;
-        //     game.youtube = ""
-        //     return game;
-        //     // return response.map((value) => {
-        //     //     //value.m = "feefeef"
-        //     //     return value;
-        //     // })
-        // })
-        // .then((response) => {
-        //     response[0].l = "efe"
-        //     // response.youtube = await searchYoutube({
-        //     //     query: response.name
-        //     // });
-        //     return response;
-        // })
+    if(!id || id.length < 12){
+        res.status(200).json({})
+        return;
+    }
+    const params = (id) ? {_id: id} : {}
+    const games = await game.find(params)
+    res.status(200).json(games)
+}
+
+async function query(req, res){
+    const {id, name, year, system, limit} = req.body || {};
+    // let query = undefined
+    // if(!id || id.length < 12){
+    //     res.status(200).json({})
+    //     return;
+    // }
+    let query = {}
+    if(id){
+        query._id = id
+    }
+    if(name){
+        query.name = { $regex: name, $options: 'i' }
+    }
+    if(year){
+        query.year = year
+    }
+    if(system){
+        query.system = system
+    }
+    let games = await game.find(query)
+        .limit(limit || 100)
+        .lean()
+        .exec()
+    
     res.status(200).json(games)
 }
 
@@ -48,13 +64,14 @@ async function manufacturers(req, res){
 
 async function youtube(req, res){
     const {query} = req.params
-    const response = await searchYoutube({ query })
+    const response = await searchYoutube(query)
         .then((result) => res.status(200).json(result))
         .catch((error) => res.status(403).json(error));
 }
 
 module.exports = {
     games,
+    gamesById,
     query,
     systems,
     years,

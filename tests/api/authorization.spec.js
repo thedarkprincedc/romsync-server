@@ -8,7 +8,7 @@ test.beforeAll(async ({ playwright, baseURL }) => {
         baseURL: baseURL,
         extraHTTPHeaders: {
             // We set this header per GitHub guidelines.
-           // 'Accept': 'application/vnd.github.v3+json',
+            // 'Accept': 'application/vnd.github.v3+json',
             // Add authorization token to all requests.
             // Assuming personal access token available in the environment.
             //'Authorization': `token ${process.env.API_TOKEN}`,
@@ -21,25 +21,25 @@ test.afterAll(async ({ }) => {
     await apiContext.dispose();
 });
 
-test('should login', async() => {
+test('/api/login - should login', async() => {
     const response = await apiContext.get(`/api/login`);
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
 })
 
-test('should login then logout', async() => {
+test('/api/logout - should login then logout', async() => {
     const response = await apiContext.get(`/api/logout`);
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
 })
 
-test('should register', async() => {
+test('/api/register - should register', async() => {
     const response = await apiContext.get(`/api/register`);
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
 })
 
-test('should get favorites', async() => {
+test('/api/favorites - should get favorites', async() => {
     const response = await apiContext.get(`/api/favorites`);
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)

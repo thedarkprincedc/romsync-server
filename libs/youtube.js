@@ -12,6 +12,7 @@ async function searchYoutube(query, apiKey){
             type: 'video'
         }
     }
+ 
     const embedUrls = (data) => {
         const embedUrl = "https://www.youtube.com/embed";
         return data.items.map((v)=>{
