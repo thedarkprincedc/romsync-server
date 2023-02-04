@@ -1,4 +1,3 @@
-
 const morgan = require('morgan')
 //const logger = require('../utility/logger');
 
@@ -28,12 +27,13 @@ const middleware = ()=> {
         // You can create your custom token to show what do you want from a request.
         // ":method :url :status :res[content-length] - :response-time ms",
         //":remote-addr :method :url :status :res[content-length] - :response-time ms",
-        "common",
+        //"dev",
+        ":method :url :status :response-time ms - :res[content-length] > :req[authorization]",
         // Options: in this case, I overwrote the stream and the skip logic.
         // See the methods above.
         { 
             stream, 
-            skip 
+            skip
         }
     )
 }

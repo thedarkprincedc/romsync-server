@@ -2,6 +2,7 @@ const axios = require('axios')
 const config = require('config');
 
 async function searchYoutube(query, apiKey){
+    const embedUrl = "https://www.youtube.com/embed";
     const request = {
         url: "https://www.googleapis.com/youtube/v3/search",
         method: 'get',
@@ -14,7 +15,6 @@ async function searchYoutube(query, apiKey){
     }
  
     const embedUrls = (data) => {
-        const embedUrl = "https://www.youtube.com/embed";
         return data.items.map((v)=>{
             v.embedUrl = `${embedUrl}/${v.id.videoId}`
             return v;

@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 let apiContext;
 
 test.beforeAll(async ({ playwright, baseURL}) => {
-    //testOptions.baseURL
-    //console.log('effr')
     apiContext = await playwright.request.newContext({
         // All requests we send go to this API endpoint.
         baseURL: baseURL, 
@@ -14,6 +12,7 @@ test.beforeAll(async ({ playwright, baseURL}) => {
             // Add authorization token to all requests.
             // Assuming personal access token available in the environment.
             //'Authorization': `token ${process.env.API_TOKEN}`,
+            
         },
     });
 })
@@ -27,7 +26,6 @@ test('/api/games - should query a specific game', async() => {
     const response = await apiContext.get('/api/games', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
-   
     //console.log(await response.json())
     //console.log(await response[0])
 })

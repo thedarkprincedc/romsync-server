@@ -1,15 +1,21 @@
-const rsOptions = {
+const fs = require('fs');
+
+const options = {
     server: {
         port: 3000,
-        options: {
-            key: './certs/publicKey.pem',
-            cert: './certs/certificate.pem'
-        }
+        certificates: {
+            key: fs.readFileSync('./certs/publicKey.pem'),
+            privateKey: fs.readFileSync('./certs/privateKey.pem'),
+            certificate: fs.readFileSync('./certs/certificate.pem')
+        },
     },
     jwt: {
         cookieName: 'romsync-dev',
-        token: {
-
+        //mode: 'cookie', //session
+        options: {
+            //secure: false,
+            algorithm: 'RS256',
+            expiresIn: '1d'
         }
     },
     mongodb: {
@@ -25,7 +31,12 @@ const rsOptions = {
     },
     youtube: {
         apiKey: process.env.YOUTUBE_APIKEY || 'AIzaSyBp2jfEZIR_Q52wgKCGJrIcL_YBVMzV65k'
+    },
+    sentry: {
+        dsn: process.env.SENTRY_DSN,
+        debug: true,
+        environment: 'development'
     }
 };
 
-module.exports = rsOptions;
+module.exports = options;

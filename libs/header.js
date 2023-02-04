@@ -10,6 +10,8 @@ function onServerStarted(server){
     console.log('Version: %s', package.version)
     console.log('Mode: %s', process.env.NODE_ENV || 'development')
     console.log(`Server listening on port %s! Go to %s://localhost:%s/`, server.port, secureText, server.port)
+    console.log('Configuration:')
+    console.log(config)
 }
 
 module.exports = {

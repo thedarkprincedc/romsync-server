@@ -1,15 +1,20 @@
-const rsOptions = {
+const fs = require('fs');
+
+const options = {
     server: {
         port: process.env.ROMSYNC_PORT || 3000,
         certificates: {
-            publicKey: process.env.ROMSYNC_PUBLIC_KEY || './certs/publicKey.pem',
-            privateKey: process.env.ROMSYNC_PRIVATE_KEY || './certs/privateKey.pem'
+            key: fs.readFileSync('./certs/publicKey.pem'),
+            privateKey: fs.readFileSync('./certs/privateKey.pem'),
+            certificate: fs.readFileSync('./certs/certificate.pem')
         }
     },
     jwt: {
-        cookieName: 'romsync',
+        cookieName: 'romsync-prod',
         token: {
-            
+            secure: true,
+            algorithm: 'RS256',
+            expiresIn: '1d'
         }
     },
     mongodb: {
@@ -33,4 +38,4 @@ const rsOptions = {
     }
 };
 
-module.exports = rsOptions;
+module.exports = options;
