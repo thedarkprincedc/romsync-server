@@ -1,8 +1,15 @@
 const axios = require('axios')
 const config = require('config');
 
-async function searchYoutube(query, apiKey){
+function embedVideoUrl(data){
     const embedUrl = "https://www.youtube.com/embed";
+    return data.items.map((v)=>{
+        v.embedUrl = `${embedUrl}/${v.id.videoId}`
+        return v;
+    })
+}
+
+async function searchYoutube(query, apiKey){
     const request = {
         url: "https://www.googleapis.com/youtube/v3/search",
         method: 'get',
@@ -13,16 +20,9 @@ async function searchYoutube(query, apiKey){
             type: 'video'
         }
     }
- 
-    const embedUrls = (data) => {
-        return data.items.map((v)=>{
-            v.embedUrl = `${embedUrl}/${v.id.videoId}`
-            return v;
-        })
-    }
 
     return axios(request)
-        .then(({data}) => embedUrls(data));
+        .then(({data}) => embedVideoUrl(data));
 }
 
 module.exports = {

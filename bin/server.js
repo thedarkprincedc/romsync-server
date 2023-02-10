@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(compression())
 app.use(TokenCookieMiddleware())
+//app.use(TokenBearerMiddleware())
+
 
 app.use('/api', require('../libs/routes'))
 

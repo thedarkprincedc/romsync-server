@@ -8,39 +8,38 @@ test.beforeAll(async ({ playwright, baseURL}) => {
         baseURL: baseURL, 
         extraHTTPHeaders: {
             // We set this header per GitHub guidelines.
-           // 'Accept': 'application/vnd.github.v3+json',
+            // 'Accept': 'application/vnd.github.v3+json',
             // Add authorization token to all requests.
             // Assuming personal access token available in the environment.
             //'Authorization': `token ${process.env.API_TOKEN}`,
-            
-        },
+        }
     });
+    await apiContext.get(`/api/login/${process.env.API_TOKEN}`);
 })
 
 test.afterAll(async ({ }) => {
     // Dispose all responses.
+    await apiContext.get(`/api/logout`)
     await apiContext.dispose();
 });
 
-test('/api/games - should query a specific game', async() => {
-    const response = await apiContext.get('/api/games', {})
-    expect(response.ok()).toBeTruthy()
-    expect(response.status()).toBe(200)
-    //console.log(await response.json())
-    //console.log(await response[0])
-})
-
-test('/api/game - should query all games', async() => {
-    const response = await apiContext.get('/api/games', {})
-    expect(response.ok()).toBeTruthy()
-    expect(response.status()).toBe(200)
-    //console.log(await response.json())
+test('/api/game - should query games', async() => {
+    const response = await apiContext.get('/api/games', {});
+    const data = await response.json();
+    expect(response.ok()).toBeTruthy();
+    expect(response.status()).toBe(200);
+    expect(data.length).toBeGreaterThan(0);
+    const {_id} = data[0];
+    const response2 = await apiContext.get(`/api/games/${_id}`, {});
+    const data2 = await response2.json();
+    expect(response2.ok()).toBeTruthy();
+    expect(response2.status()).toBe(200);
+    expect(data2.length).toBe(1);
 })
 test('/api/query - should query all games', async() => {
     const response = await apiContext.post('/api/query', {})
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
-    //console.log(await response.json())
 })
 
 test('/api/query - should query by id', async() => {
@@ -49,7 +48,6 @@ test('/api/query - should query by id', async() => {
     })
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
-    //console.log(await response.json())
 })
 
 test('/api/years - should query all years', async() => {

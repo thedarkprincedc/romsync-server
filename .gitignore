@@ -5,3 +5,4 @@ node_modules/
 mongodb/database/
 temp/
 certs/
+playwright-report/

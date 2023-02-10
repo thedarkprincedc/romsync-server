@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
+process.env.API_TOKEN = "Ym1vc2xleTpEcmljYXNNNHg="
 export default defineConfig({
     webServer: [
     {
@@ -17,9 +18,13 @@ export default defineConfig({
     ],
 
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: 'dot',
-
+    reporter: [
+        //['dot'],
+        ['list'],
+       // ['html']
+    ],
     use: {
-        baseURL: 'http://localhost:3000/', //// process.env.ROMSYNC_URL',
+        baseURL: 'http://localhost:3000/',
+        //apiToken: process.env.API_TOKEN || 'Ym1vc2xleTpEcmljYXNNNHg='
     },
 });

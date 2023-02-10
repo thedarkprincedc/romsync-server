@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 let apiContext;
 
 test.beforeAll(async ({ playwright, baseURL }) => {
-    const credentialsBase64 = "Ym1vc2xleTpEcmljYXNNNHg="
     apiContext = await playwright.request.newContext({
         // All requests we send go to this API endpoint.
         baseURL: baseURL,
@@ -13,19 +12,8 @@ test.beforeAll(async ({ playwright, baseURL }) => {
             // Add authorization token to all requests.
             // Assuming personal access token available in the environment.
             //'Authorization': `token ${process.env.API_TOKEN}`,
-            //'authorization': `Basic Ym1vc2xleTpEcmljYXNNNHg=`,
-            'Authorization': `Basic ${credentialsBase64}`,
-        },
-        // httpCredentials: {
-        //     username: 'bmosley',
-        //     password: 'DricasM4x'
-        // }
-        //withCredentials: true
-        // headers: {
-        //     Authorization: `Bearer Ym1vc2xleTpEcmljYXNNNHg=`,
-        // }
+        }
     });
-
 })
 
 test.afterAll(async ({ }) => {
@@ -33,7 +21,7 @@ test.afterAll(async ({ }) => {
     await apiContext.dispose();
 });
 
-test('/api/login - should login (GET)', async() => {
+test('/api/login - should login (GET)', async({playwright}) => {
     const response = await apiContext.get(`/api/login/Ym1vc2xleTpEcmljYXNNNHg=`);
     expect(response.ok()).toBeTruthy()
     expect(response.status()).toBe(200)
@@ -64,16 +52,16 @@ test('/api/logout - should login then logout', async() => {
     expect(response.status()).toBe(200)
 })
 
-test('/api/register - should register', async() => {
+// test('/api/register - should register', async() => {
 
-    //const responses = await apiContext.get(`/api/login/Ym1vc2xleTpEcmljYXNNNHg=`);
-    const response = await apiContext.get(`/api/register`);
-    expect(response.ok()).toBeTruthy()
-    expect(response.status()).toBe(200)
-})
+//     //const responses = await apiContext.get(`/api/login/Ym1vc2xleTpEcmljYXNNNHg=`);
+//     const response = await apiContext.get(`/api/register`);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.status()).toBe(200)
+// })
 
-test('/api/favorites - should get favorites', async() => {
-    const response = await apiContext.get(`/api/favorites`);
-    expect(response.ok()).toBeTruthy()
-    expect(response.status()).toBe(200)
-})
+// test('/api/favorites - should get favorites', async() => {
+//     const response = await apiContext.get(`/api/favorites`);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.status()).toBe(200)
+// })

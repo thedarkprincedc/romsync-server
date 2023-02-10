@@ -10,7 +10,23 @@ function convertFromBase64String(string){
         password: credentials[1]
     }
 }
+async function validateCredentials(username, password){
+    const user = await User.findOne({username: username});
+    if(!user || !user.comparePassword(password)){
+        return false;
+    }
+    return false;
+}
 
+async function getUserDataByUsername(username){
+    return await User.findOne({username: username})
+}
+async function checkLogin(req, res){
+    const signedToken = req.cookies[config.jwt.cookieName];
+    const user = token.verify(signedToken)
+    return res.status(200)
+        .json(user);
+}
 async function login(req, res){
     const {authorization} = req.headers;
     const credential = req.params.credential || authorization.split(' ')[1]
@@ -96,5 +112,8 @@ module.exports = {
     logout,
     register,
     favorites,
-    groups
+    groups,
+    validateCredentials,
+    getUserDataByUsername,
+    checkLogin
 }
