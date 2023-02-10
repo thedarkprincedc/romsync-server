@@ -14,6 +14,7 @@ const options = {
         //mode: 'cookie', //session
         options: {
             //secure: false,
+            //sameSite: true,
             algorithm: 'RS256',
             expiresIn: '1d'
         }
