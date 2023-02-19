@@ -34,7 +34,7 @@ const options = {
     sentry: {
         dsn: process.env.SENTRY_DSN,
         debug: true,
-        environment: 'production'
+        environment: process.env.SENTRY_ENVIRONMENT
     }
 };
 

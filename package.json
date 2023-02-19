@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node bin/server.js",
     "start:prod": "NODE_ENV=production node bin/server",
-    "start:watch": "nodemon",
+    "start:watch": "node bin/server.js --watch-paths=./libs",
     "build": "rimraf ./dist && ",
     "test": "NODE_ENV=development npx playwright test",
+    "test:ci": "cross-env NODE_ENV=development CI=true npx playwright test",
     "test:dot": "npm test -- --reporter=dot",
     "test:html": "npm test -- --reporter=html",
     "dockerstart:mongo": "cd ./mongodb && docker-compose up -d",
@@ -16,11 +17,16 @@
     "dockerstart:server": "docker-compose up -d",
     "dockerstop:server": "docker-compose down",
     "generate:certs": "node ./scripts/generate-certificates.js",
-    "generate:seeds": "node ./scripts/generate-seed-files.js && NODE_ENV=development node ./scripts/migrate-seed-file-to-mongo.js"
+    "generate:seeds": "node ./scripts/generate-seed-files.js && NODE_ENV=development node ./scripts/migrate-seed-file-to-mongo.js",
+    "start:frontend": "cd ../romsync-app && npm run start:dev",
+    "test:frontend": "cd ../romsync-app && npm run test:watch",
+    "start:backend": "npm run start",
+    "start:dev": "concurrently --kill-others \"npm run start:backend\" \"npm run start:frontend\" \"npm run test:frontend\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axe-playwright": "^1.2.1",
     "axios": "^1.2.4",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
@@ -34,8 +40,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.6.0",
     "@faker-js/faker": "^6.0.0-beta.0",
     "@playwright/test": "^1.30.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "node-forge": "^1.3.1",
     "playwright": "^1.30.0",
     "xml2js": "^0.4.23"

@@ -9,7 +9,7 @@ const compression = require('compression')
 const cookieParser = require('cookie-parser');
 const banner = require('../libs/header')
 const morganMiddleware = require('../libs/middleware/morgan.middleware')
-const {TokenBearerMiddleware, TokenCookieMiddleware} = require('../libs/middleware/token.middleware')
+const { TokenMiddleware} = require('../libs/middleware/token.middleware')
 
 app.set('json spaces', 2);
 
@@ -22,7 +22,8 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(compression())
-app.use(TokenCookieMiddleware())
+app.use(TokenMiddleware())
+//app.use(TokenCookieMiddleware())
 //app.use(TokenBearerMiddleware())
 
 

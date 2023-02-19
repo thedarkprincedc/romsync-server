@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const options = {
     server: {
-        port: 3000,
+        port: process.env.ROMSYNC_PORT || 3000,
         certificates: {
             key: fs.readFileSync('./certs/publicKey.pem'),
             privateKey: fs.readFileSync('./certs/privateKey.pem'),
