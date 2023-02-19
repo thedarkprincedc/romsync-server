@@ -12,9 +12,9 @@ pipeline {
             }
         }
         stage('deploy') {
-            // steps {
+            steps {
             //     sh 'node --version'
-            // }
+            }
         }
     }
 }
