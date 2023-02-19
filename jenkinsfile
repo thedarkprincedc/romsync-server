@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library@master') _
+@Library('jenkins-shared-library@main') _
 pipeline {
     //agent { docker { image 'node:16.17.1-alpine' } }
     agent any
